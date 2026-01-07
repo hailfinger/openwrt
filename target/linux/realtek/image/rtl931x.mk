@@ -60,3 +60,9 @@ define Device/zyxel_xs1930-12hp
   DEVICE_MODEL := XS1930-12HP
 endef
 TARGET_DEVICES += zyxel_xs1930-12f
+
+define Device/zyxel_xmg1930-30hp
+  $(Device/zyxel_xs1930)
+  DEVICE_MODEL := XMG1930-30HP
+endef
+TARGET_DEVICES += zyxel_xmg1930-30hp
