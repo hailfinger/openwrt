@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0-only
 
+#define DEBUG
+
 #include <linux/fwnode.h>
 #include <linux/fwnode_mdio.h>
 #include <linux/mfd/syscon.h>
