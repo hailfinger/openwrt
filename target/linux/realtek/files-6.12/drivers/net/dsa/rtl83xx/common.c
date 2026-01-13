@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0-only
 
+#define DEBUG
+
 #include <linux/of_mdio.h>
 #include <linux/of_platform.h>
 #include <net/arp.h>
