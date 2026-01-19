@@ -12,7 +12,16 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 
 --- a/drivers/net/phy/aquantia/aquantia_main.c
 +++ b/drivers/net/phy/aquantia/aquantia_main.c
-@@ -32,6 +32,10 @@
+@@ -7,6 +7,8 @@
+  * Copyright 2015 Freescale Semiconductor, Inc.
+  */
+ 
++#define DEBUG
++
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/delay.h>
+@@ -32,6 +34,10 @@
  #define PHY_ID_AQR114C	0x31c31c22
  #define PHY_ID_AQR115C	0x31c31c33
  #define PHY_ID_AQR813	0x31c31cb2
@@ -23,7 +32,7 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
  
  #define MDIO_PHYXS_VEND_IF_STATUS		0xe812
  #define MDIO_PHYXS_VEND_IF_STATUS_TYPE_MASK	GENMASK(7, 3)
-@@ -1205,6 +1209,78 @@ static struct phy_driver aqr_driver[] =
+@@ -1205,6 +1211,78 @@ static struct phy_driver aqr_driver[] =
  	.led_hw_control_get = aqr_phy_led_hw_control_get,
  	.led_polarity_set = aqr_phy_led_polarity_set,
  },
@@ -102,7 +111,7 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
  };
  
  module_phy_driver(aqr_driver);
-@@ -1226,6 +1302,10 @@ static const struct mdio_device_id __may
+@@ -1226,6 +1304,10 @@ static const struct mdio_device_id __may
  	{ PHY_ID_MATCH_MODEL(PHY_ID_AQR114C) },
  	{ PHY_ID_MATCH_MODEL(PHY_ID_AQR115C) },
  	{ PHY_ID_MATCH_MODEL(PHY_ID_AQR813) },
@@ -113,3 +122,13 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
  	{ }
  };
  
+--- a/drivers/net/phy/aquantia/aquantia_firmware.c
++++ b/drivers/net/phy/aquantia/aquantia_firmware.c
+@@ -1,5 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0
+ 
++#define DEBUG
++
+ #include <linux/bitfield.h>
+ #include <linux/of.h>
+ #include <linux/firmware.h>
