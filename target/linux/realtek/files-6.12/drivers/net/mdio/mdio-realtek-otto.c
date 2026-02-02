@@ -17,6 +17,7 @@
 
 #define RTMDIO_PHY_AQR113C_A			0x31c31c12
 #define RTMDIO_PHY_AQR113C_B			0x31c31c13
+#define RTMDIO_PHY_AQR413C_MAYBE		0x31c31c83
 #define RTMDIO_PHY_AQR813			0x31c31cb2
 #define RTMDIO_PHY_RTL8221B_VB_CG		0x001cc849
 #define RTMDIO_PHY_RTL8221B_VM_CG		0x001cc84a
@@ -624,6 +625,7 @@ static void rtmdio_get_phy_info(struct mii_bus *bus, int addr, struct rtmdio_phy
 	switch(phyinfo->phy_id) {
 	case RTMDIO_PHY_AQR113C_A:
 	case RTMDIO_PHY_AQR113C_B:
+	case RTMDIO_PHY_AQR413C_MAYBE:
 	case RTMDIO_PHY_AQR813:
 		phyinfo->mac_type = RTMDIO_PHY_MAC_2G_PLUS;
 		phyinfo->poll_duplex = RTMDIO_PHY_POLL_MMD(1, 0x0000, 8);
